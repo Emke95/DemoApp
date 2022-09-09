@@ -10,8 +10,21 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
-    <div class="container-fluid">
-      <%= yield %>
+    <% if flash[:notice]%>
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <%= flash[:notice]%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <%=flash[:notice]%>
+    <% end %>
+    <%if flash[:alerts]%>
+      <%= flash[:notice]%>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-  </body>
+    <%=flash[:alerts]%>
+  <% end %>
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
+</body>
 </html>
